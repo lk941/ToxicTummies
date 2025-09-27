@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhl6d5bgwpmut" path="res://obstacles/color_rect.gd" id="1_ao1f1"]
 [ext_resource type="Script" uid="uid://71q64h8wssoj" path="res://obstacles/blocker_area_2d.gd" id="1_jngnb"]
-[ext_resource type="Texture2D" uid="uid://1pam6hl2aop7" path="res://art/jelly/badjelly.png" id="3_4rhir"]
+[ext_resource type="Texture2D" uid="uid://1pam6hl2aop7" path="res://images/jelly/badjelly.png" id="3_4rhir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tftu0"]
 size = Vector2(59, 98)

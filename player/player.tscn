@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://q6yaogco5htg"]
 
 [ext_resource type="Texture2D" uid="uid://b7bjmatmeww1k" path="res://images/character_spritesheet_bestie1.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://br8ftdx80ge83" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://diy5wl2v7sn6u" path="res://art/lollipop/Lolli_SpriteSheet.png" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://br8ftdx80ge83" path="res://player/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://diy5wl2v7sn6u" path="res://images/lollipop/Lolli_SpriteSheet.png" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")

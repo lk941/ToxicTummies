@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diy5wl2v7sn6u"
-path="res://.godot/imported/Lolli_SpriteSheet.png-ce3eebeb2f64ad7f5f293762d1fc3012.ctex"
+uid="uid://bqfkwrx554e2c"
+path="res://.godot/imported/Lolli_nooutline_SpriteSheet.png-3d709d0360a52f2e2c81e97dcce07769.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/lollipop/Lolli_SpriteSheet.png"
-dest_files=["res://.godot/imported/Lolli_SpriteSheet.png-ce3eebeb2f64ad7f5f293762d1fc3012.ctex"]
+source_file="res://images/lollipop/Lolli_nooutline_SpriteSheet.png"
+dest_files=["res://.godot/imported/Lolli_nooutline_SpriteSheet.png-3d709d0360a52f2e2c81e97dcce07769.ctex"]
 
 [params]
 

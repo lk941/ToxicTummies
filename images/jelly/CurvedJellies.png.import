@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1pam6hl2aop7"
-path="res://.godot/imported/badjelly.png-582b823cdfce9e379848f2e828d25d76.ctex"
+uid="uid://c4lqt33uu2qso"
+path="res://.godot/imported/CurvedJellies.png-a51fc4a91f4730b9bf24c56596f6740d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/jelly/badjelly.png"
-dest_files=["res://.godot/imported/badjelly.png-582b823cdfce9e379848f2e828d25d76.ctex"]
+source_file="res://images/jelly/CurvedJellies.png"
+dest_files=["res://.godot/imported/CurvedJellies.png-a51fc4a91f4730b9bf24c56596f6740d.ctex"]
 
 [params]
 
