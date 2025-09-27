@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4lqt33uu2qso"
-path="res://.godot/imported/CurvedJellies.png-a51fc4a91f4730b9bf24c56596f6740d.ctex"
+uid="uid://diy5wl2v7sn6u"
+path="res://.godot/imported/Lolli_SpriteSheet.png-090be009a5210498ae672d4921cba0ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/jelly/CurvedJellies.png"
-dest_files=["res://.godot/imported/CurvedJellies.png-a51fc4a91f4730b9bf24c56596f6740d.ctex"]
+source_file="res://images/player/Lolli_SpriteSheet.png"
+dest_files=["res://.godot/imported/Lolli_SpriteSheet.png-090be009a5210498ae672d4921cba0ec.ctex"]
 
 [params]
 

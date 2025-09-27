@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqfkwrx554e2c"
-path="res://.godot/imported/Lolli_nooutline_SpriteSheet.png-3d709d0360a52f2e2c81e97dcce07769.ctex"
+uid="uid://cl6bda41sicn5"
+path="res://.godot/imported/RedJelly.png-f558dd074753c221ee03c6e34b2156c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/lollipop/Lolli_nooutline_SpriteSheet.png"
-dest_files=["res://.godot/imported/Lolli_nooutline_SpriteSheet.png-3d709d0360a52f2e2c81e97dcce07769.ctex"]
+source_file="res://images/jelly/RedJelly.png"
+dest_files=["res://.godot/imported/RedJelly.png-f558dd074753c221ee03c6e34b2156c8.ctex"]
 
 [params]
 

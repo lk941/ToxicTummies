@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://baiqc380t2018" path="res://environment.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c20wdvut4isc1" path="res://obstacles/blocker_basic.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c1oeu2y8pojk0" path="res://enemy/enemy.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -19,5 +19,5 @@ position = Vector2(150, 310)
 [node name="Background" parent="." instance=ExtResource("2_h2yge")]
 layout_mode = 1
 
-[node name="BadJelly" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(1, 8)
+[node name="Enemy" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(918, 432)
