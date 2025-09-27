@@ -18,4 +18,8 @@ func get_poisoned():
 	
 func get_bagged():
 	anim.play("bagged")    
-	print("hi")
+	
+func get_energized():
+	%SatietyBar.value += 10
+	print("energized + 10")
+	anim.play("bagged")    

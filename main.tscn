@@ -25,7 +25,6 @@ layout_mode = 1
 position = Vector2(500, 432)
 
 [node name="CurvedJellies" parent="." instance=ExtResource("4_lquwl")]
-visible = false
 position = Vector2(500, 430)
 scale = Vector2(2.3, 2.3)
 
