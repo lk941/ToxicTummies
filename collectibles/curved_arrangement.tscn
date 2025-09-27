@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciswfexi12n38"]
+
+[ext_resource type="Texture2D" uid="uid://cl6bda41sicn5" path="res://images/jelly/RedJelly.png" id="1_jgxxv"]
+[ext_resource type="Script" uid="uid://bienf66gx4aii" path="res://collectibles/jelly_1.gd" id="1_kpb2h"]
+[ext_resource type="Script" uid="uid://btuc02mdnhomd" path="res://collectibles/jelly_5.gd" id="3_gjk04"]
+[ext_resource type="Script" uid="uid://drffc05hc1g1w" path="res://collectibles/jelly_3.gd" id="4_7ai2w"]
+[ext_resource type="Script" uid="uid://itnqjxsfnyi7" path="res://collectibles/jelly_2.gd" id="5_54vyi"]
+[ext_resource type="Script" uid="uid://c3nc801tvoaqd" path="res://collectibles/jelly_4.gd" id="6_bdrdc"]
+
+[sub_resource type="GDScript" id="GDScript_x54t1"]
+script/source = "extends Node2D
+
+var SPEED = 300
+
+func _process(delta):
+	position.x -= SPEED * delta
+
+	if position.x < -50:  # off-screen
+		queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpb2h"]
+radius = 13.0
+
+[node name="CurvedArrangement" type="Node2D"]
+script = SubResource("GDScript_x54t1")
+
+[node name="Jelly1" type="Area2D" parent="."]
+script = ExtResource("1_kpb2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly1"]
+shape = SubResource("CircleShape2D_kpb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jelly1"]
+texture = ExtResource("1_jgxxv")
+
+[node name="Jelly5" type="Area2D" parent="."]
+position = Vector2(160, 0)
+script = ExtResource("3_gjk04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly5"]
+shape = SubResource("CircleShape2D_kpb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jelly5"]
+texture = ExtResource("1_jgxxv")
+
+[node name="Jelly3" type="Area2D" parent="."]
+position = Vector2(80, -53)
+script = ExtResource("4_7ai2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly3"]
+shape = SubResource("CircleShape2D_kpb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jelly3"]
+texture = ExtResource("1_jgxxv")
+
+[node name="Jelly2" type="Area2D" parent="."]
+position = Vector2(31, -35)
+script = ExtResource("5_54vyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly2"]
+shape = SubResource("CircleShape2D_kpb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jelly2"]
+texture = ExtResource("1_jgxxv")
+
+[node name="Jelly4" type="Area2D" parent="."]
+position = Vector2(128, -35)
+script = ExtResource("6_bdrdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly4"]
+shape = SubResource("CircleShape2D_kpb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jelly4"]
+texture = ExtResource("1_jgxxv")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=6 format=3 uid="uid://b6u4obw673cdi"]
 
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://baiqc380t2018" path="res://environment.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c1oeu2y8pojk0" path="res://enemy/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c1oeu2y8pojk0" path="res://obstacle/obstacle.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ciswfexi12n38" path="res://collectibles/curved_arrangement.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bbbjciw77lr3k" path="res://collectibles/shield.tscn" id="5_lquwl"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -19,5 +21,15 @@ position = Vector2(150, 310)
 [node name="Background" parent="." instance=ExtResource("2_h2yge")]
 layout_mode = 1
 
-[node name="Enemy" parent="." instance=ExtResource("4_1bvp3")]
+[node name="Obstacle" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(918, 432)
+
+[node name="CurvedJellies" parent="." instance=ExtResource("4_lquwl")]
+visible = false
+position = Vector2(500, 430)
+scale = Vector2(2.3, 2.3)
+
+[node name="Shield" parent="." instance=ExtResource("5_lquwl")]
+visible = false
+position = Vector2(1000, 432)
+scale = Vector2(1.995, 1.995)
