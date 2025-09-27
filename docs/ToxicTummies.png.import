@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7bjmatmeww1k"
-path="res://.godot/imported/character_spritesheet_bestie1.png-0e392ce713e274e65655d1ef100afe83.ctex"
+uid="uid://kthd5unokl22"
+path="res://.godot/imported/ToxicTummies.png-5b3bae42ea464e0fd41aee5753a69e06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/character_spritesheet_bestie1.png"
-dest_files=["res://.godot/imported/character_spritesheet_bestie1.png-0e392ce713e274e65655d1ef100afe83.ctex"]
+source_file="res://docs/ToxicTummies.png"
+dest_files=["res://.godot/imported/ToxicTummies.png-5b3bae42ea464e0fd41aee5753a69e06.ctex"]
 
 [params]
 
