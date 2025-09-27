@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=13 format=3 uid="uid://b6u4obw673cdi"]
 
 [ext_resource type="Script" uid="uid://dsk2g31dyht88" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
@@ -6,6 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://c1oeu2y8pojk0" path="res://obstacle/obstacle.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ciswfexi12n38" path="res://collectibles/curved_arrangement.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://djsu4b4awlcb3" path="res://collectibles/shield.tscn" id="5_lquwl"]
+[ext_resource type="FontFile" uid="uid://cvs7g1pb3ns3c" path="res://fonts/mago2.ttf" id="7_272bh"]
+[ext_resource type="FontFile" uid="uid://dmx3q3mu7bgf0" path="res://fonts/mago3.ttf" id="8_5vw27"]
+
+[sub_resource type="Theme" id="Theme_7mycd"]
+default_font = ExtResource("7_272bh")
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_272bh"]
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_kek77"]
+default_font = ExtResource("8_5vw27")
+default_font_size = 120
+
+[sub_resource type="Theme" id="Theme_5vw27"]
+default_font = ExtResource("7_272bh")
+default_font_size = 80
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -57,3 +74,58 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 61
 text = "GAME OVER"
+
+[node name="ScoreCount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 20.0
+offset_right = 1150.0
+offset_bottom = 80.0
+theme = SubResource("Theme_7mycd")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 20.0
+offset_right = 1050.0
+offset_bottom = 80.0
+theme = SubResource("Theme_272bh")
+theme_override_fonts/normal_font = ExtResource("7_272bh")
+text = "Score:"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="GameState" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameStartLabel" type="RichTextLabel" parent="GameState"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.782001
+anchor_bottom = 16.336
+offset_left = 305.0
+offset_top = 149.0
+offset_right = -290.28003
+offset_bottom = -409.44
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kek77")
+text = "START GAME"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="GameState"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 253.0
+offset_right = 638.0
+offset_bottom = 325.0
+theme = SubResource("Theme_5vw27")
+text = "PLAY"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GameState/StartButton" to="." method="_on_start_button_pressed"]

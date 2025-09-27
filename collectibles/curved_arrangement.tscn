@@ -11,12 +11,16 @@
 script/source = "extends Node2D
 
 var SPEED = 300
+var SCREEN_WIDTH = 1024  # adjust to your game's width
+var RESET_X = SCREEN_WIDTH + 50  # some buffer so it's offscreen
+var SCREEN_HEIGHT = 600  # your game height
 
 func _process(delta):
 	position.x -= SPEED * delta
 
-	if position.x < -50:  # off-screen
-		queue_free()
+	if position.x < -50:
+		position.x = RESET_X
+		position.y = randf_range(50, SCREEN_HEIGHT - 50)
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpb2h"]
