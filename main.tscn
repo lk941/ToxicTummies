@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=7 format=3 uid="uid://b6u4obw673cdi"]
 
+[ext_resource type="Script" uid="uid://dsk2g31dyht88" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://baiqc380t2018" path="res://environment.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c1oeu2y8pojk0" path="res://obstacle/obstacle.tscn" id="4_1bvp3"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7mycd")
 
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 top_level = true
@@ -31,3 +33,27 @@ scale = Vector2(2.3, 2.3)
 [node name="Shield" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(865, 432)
 scale = Vector2(2.08, 2.08)
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.533333)
+
+[node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 61
+text = "GAME OVER"

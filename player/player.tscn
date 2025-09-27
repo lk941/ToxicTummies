@@ -353,7 +353,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_g6k8r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qjkh3")
 value = 10.0
 
-[node name="SatietyBar" type="ProgressBar" parent="."]
+[node name="HungerBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_top = 3.0
 offset_right = 200.0
