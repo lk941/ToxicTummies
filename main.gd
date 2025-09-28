@@ -7,6 +7,8 @@ extends Control
 @onready var start_label = $GameState/GameStartLabel
 
 var score = 0
+var game_started: bool = false
+var game_end: bool = false
 
 func _ready():
 	pass
@@ -31,6 +33,7 @@ func _on_timer_timeout():
 
 
 func _on_start_button_pressed() -> void:
+	Main.game_started = true
 	start_label.visible = false
 	play_button.visible = false
 	

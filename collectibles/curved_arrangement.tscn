@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cl6bda41sicn5" path="res://images/jelly/RedJelly.png" id="1_jgxxv"]
 [ext_resource type="Script" uid="uid://bienf66gx4aii" path="res://collectibles/jelly_1.gd" id="1_kpb2h"]
-[ext_resource type="Script" uid="uid://btuc02mdnhomd" path="res://collectibles/jelly_5.gd" id="3_gjk04"]
-[ext_resource type="Script" uid="uid://drffc05hc1g1w" path="res://collectibles/jelly_3.gd" id="4_7ai2w"]
-[ext_resource type="Script" uid="uid://itnqjxsfnyi7" path="res://collectibles/jelly_2.gd" id="5_54vyi"]
-[ext_resource type="Script" uid="uid://c3nc801tvoaqd" path="res://collectibles/jelly_4.gd" id="6_bdrdc"]
+[ext_resource type="PackedScene" uid="uid://rbw7pt2jrxbt" path="res://collectibles/red_jelly.tscn" id="5_sxpfe"]
+[ext_resource type="PackedScene" uid="uid://cur4fc0cy2cqg" path="res://shield.tscn" id="6_gjk04"]
+[ext_resource type="PackedScene" uid="uid://c5qxvtssa0msp" path="res://collectibles/green_jelly.tscn" id="7_7ai2w"]
+[ext_resource type="PackedScene" uid="uid://dr2bq0vaol8bg" path="res://collectibles/purple_jelly.tscn" id="8_54vyi"]
 
 [sub_resource type="GDScript" id="GDScript_x54t1"]
 script/source = "extends Node2D
@@ -13,14 +13,11 @@ script/source = "extends Node2D
 var SPEED = 300
 var SCREEN_WIDTH = 1024  # adjust to your game's width
 var RESET_X = SCREEN_WIDTH + 50  # some buffer so it's offscreen
-var SCREEN_HEIGHT = 600  # your game height
+var SCREEN_HEIGHT = 600  # your game 
 
 func _process(delta):
-	position.x -= SPEED * delta
-
-	if position.x < -50:
-		position.x = RESET_X
-		position.y = randf_range(50, SCREEN_HEIGHT - 50)
+	if Main.game_started:
+		position.x -= SPEED * delta
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpb2h"]
@@ -38,44 +35,54 @@ shape = SubResource("CircleShape2D_kpb2h")
 [node name="Sprite2D" type="Sprite2D" parent="Jelly1"]
 texture = ExtResource("1_jgxxv")
 
-[node name="Jelly5" type="Area2D" parent="."]
-position = Vector2(160, 0)
-script = ExtResource("3_gjk04")
+[node name="GreenJelly" parent="." instance=ExtResource("7_7ai2w")]
+position = Vector2(227, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly5"]
+[node name="PurpleJelly" parent="." instance=ExtResource("8_54vyi")]
+position = Vector2(69, -1)
+
+[node name="RedJelly" parent="." instance=ExtResource("5_sxpfe")]
+position = Vector2(30, -23)
+
+[node name="RedJelly2" parent="." instance=ExtResource("5_sxpfe")]
+position = Vector2(69, -37)
+
+[node name="RedJelly3" parent="." instance=ExtResource("5_sxpfe")]
+position = Vector2(106, -24)
+
+[node name="RedJelly4" parent="." instance=ExtResource("5_sxpfe")]
+position = Vector2(138, 0)
+
+[node name="Jelly2" type="Area2D" parent="RedJelly4"]
+position = Vector2(178, -3)
+script = ExtResource("1_kpb2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedJelly4/Jelly2"]
 shape = SubResource("CircleShape2D_kpb2h")
 
-[node name="Sprite2D" type="Sprite2D" parent="Jelly5"]
+[node name="Sprite2D" type="Sprite2D" parent="RedJelly4/Jelly2"]
 texture = ExtResource("1_jgxxv")
 
-[node name="Jelly3" type="Area2D" parent="."]
-position = Vector2(80, -53)
-script = ExtResource("4_7ai2w")
+[node name="RedJelly" parent="RedJelly4" instance=ExtResource("5_sxpfe")]
+position = Vector2(208, -26)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly3"]
-shape = SubResource("CircleShape2D_kpb2h")
+[node name="RedJelly2" parent="RedJelly4" instance=ExtResource("5_sxpfe")]
+position = Vector2(247, -40)
 
-[node name="Sprite2D" type="Sprite2D" parent="Jelly3"]
-texture = ExtResource("1_jgxxv")
+[node name="RedJelly3" parent="RedJelly4" instance=ExtResource("5_sxpfe")]
+position = Vector2(284, -27)
 
-[node name="Jelly2" type="Area2D" parent="."]
-position = Vector2(31, -35)
-script = ExtResource("5_54vyi")
+[node name="RedJelly4" parent="RedJelly4" instance=ExtResource("5_sxpfe")]
+position = Vector2(316, -3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly2"]
-shape = SubResource("CircleShape2D_kpb2h")
+[node name="PurpleJelly2" parent="." instance=ExtResource("8_54vyi")]
+position = Vector2(385, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Jelly2"]
-texture = ExtResource("1_jgxxv")
+[node name="Shield" parent="." instance=ExtResource("6_gjk04")]
+position = Vector2(182, -10)
 
-[node name="Jelly4" type="Area2D" parent="."]
-position = Vector2(128, -35)
-script = ExtResource("6_bdrdc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly4"]
-shape = SubResource("CircleShape2D_kpb2h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Jelly4"]
-texture = ExtResource("1_jgxxv")
+[node name="Shield2" parent="." instance=ExtResource("6_gjk04")]
+position = Vector2(546, -11)
 
 [connection signal="body_entered" from="Jelly1" to="Jelly1" method="_on_body_entered"]
+[connection signal="body_entered" from="RedJelly4/Jelly2" to="RedJelly4/Jelly2" method="_on_body_entered"]

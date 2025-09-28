@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=12 format=3 uid="uid://b6u4obw673cdi"]
 
 [ext_resource type="Script" uid="uid://dsk2g31dyht88" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://baiqc380t2018" path="res://environment.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c1oeu2y8pojk0" path="res://obstacle/obstacle.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ciswfexi12n38" path="res://collectibles/curved_arrangement.tscn" id="4_lquwl"]
-[ext_resource type="PackedScene" uid="uid://djsu4b4awlcb3" path="res://collectibles/shield.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://b2453dq6i1l46" path="res://end_screen.gd" id="7_5vw27"]
 [ext_resource type="FontFile" uid="uid://cvs7g1pb3ns3c" path="res://fonts/mago2.ttf" id="7_272bh"]
 [ext_resource type="FontFile" uid="uid://dmx3q3mu7bgf0" path="res://fonts/mago3.ttf" id="8_5vw27"]
 
@@ -40,40 +39,9 @@ position = Vector2(150, 310)
 [node name="Background" parent="." instance=ExtResource("2_h2yge")]
 layout_mode = 1
 
-[node name="Obstacle" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(500, 432)
-
 [node name="CurvedJellies" parent="." instance=ExtResource("4_lquwl")]
 position = Vector2(500, 430)
 scale = Vector2(2.3, 2.3)
-
-[node name="Shield" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(865, 432)
-scale = Vector2(2.08, 2.08)
-
-[node name="GameOverScreen" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0, 0, 0, 0.533333)
-
-[node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 61
-text = "GAME OVER"
 
 [node name="ScoreCount" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -126,6 +94,37 @@ offset_right = 638.0
 offset_bottom = 325.0
 theme = SubResource("Theme_5vw27")
 text = "PLAY"
+
+[node name="EndScreen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_5vw27")
+
+[node name="GameOverScreen" type="CanvasLayer" parent="EndScreen"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="EndScreen/GameOverScreen"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.533333)
+
+[node name="Label" type="Label" parent="EndScreen/GameOverScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -83.0
+offset_right = 190.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameState/StartButton" to="." method="_on_start_button_pressed"]
