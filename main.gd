@@ -34,7 +34,7 @@ func game_start():
 	%CurvedJellies.visible = true
 	
 
-  generator.start_spawning()
+	generator.start_spawning()
 
 
 

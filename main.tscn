@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=17 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=20 format=3 uid="uid://b6u4obw673cdi"]
 
 [ext_resource type="Script" uid="uid://dsk2g31dyht88" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
@@ -8,11 +7,8 @@
 [ext_resource type="Script" uid="uid://b2453dq6i1l46" path="res://end_screen.gd" id="7_5vw27"]
 [ext_resource type="FontFile" uid="uid://cvs7g1pb3ns3c" path="res://fonts/mago2.ttf" id="7_272bh"]
 [ext_resource type="FontFile" uid="uid://dmx3q3mu7bgf0" path="res://fonts/mago3.ttf" id="8_5vw27"]
-
-[ext_resource type="Script" uid="uid://0br0auowg2ql" path="res://generate/generate.gd" id="8_kek77"]
-
 [ext_resource type="FontFile" uid="uid://do5hhffa3r4fr" path="res://fonts/mago1.ttf" id="8_kek77"]
-
+[ext_resource type="Script" uid="uid://0br0auowg2ql" path="res://generate/generate.gd" id="9_kek77"]
 
 [sub_resource type="Theme" id="Theme_7mycd"]
 default_font = ExtResource("7_272bh")
@@ -183,10 +179,6 @@ theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
 
-
-[node name="ObstacleGenerator" type="Node2D" parent="."]
-script = ExtResource("8_kek77")
-
 [node name="FinalScoreLabel" type="Label" parent="EndScreen/GameOverScreen/ColorRect"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -206,7 +198,8 @@ offset_right = 681.0
 offset_bottom = 353.0
 label_settings = SubResource("LabelSettings_efxa6")
 
-
+[node name="ObstacleGenerator" type="Node2D" parent="."]
+script = ExtResource("9_kek77")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameState/StartButton" to="." method="_on_start_button_pressed"]
