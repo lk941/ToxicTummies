@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgjflo0gawcn"
-path="res://.godot/imported/newshield_blue.png-10c3ad9987ebf5b9a82794bf83c7eead.ctex"
+uid="uid://rakxuq0h3gcs"
+path="res://.godot/imported/lollipop_slide.png-398450a184db8417fe1c417f0f4a07aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/shield/newshield_blue.png"
-dest_files=["res://.godot/imported/newshield_blue.png-10c3ad9987ebf5b9a82794bf83c7eead.ctex"]
+source_file="res://images/player/lollipop_slide.png"
+dest_files=["res://.godot/imported/lollipop_slide.png-398450a184db8417fe1c417f0f4a07aa.ctex"]
 
 [params]
 

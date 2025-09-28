@@ -46,6 +46,11 @@ func _physics_process(delta: float):
 			on_ground = 0
 			velocity.y = jump_strength
 			jump()
+			
+	if Input.is_action_just_pressed("slide"):
+		if on_ground == 1:
+			on_ground = 0
+			slide()
 	
 	#if hunger_level <= 0.0:
 		#hunger_depleted.emit()
@@ -61,6 +66,23 @@ func jump():
 	t.tween_property(self, "position:y", position.y, down_time).set_trans(Tween.TRANS_SINE)
 	t.tween_callback(set_on_ground_true) # Call a function after the final tween completes
 	
+func slide():
+	anim.play("slide")
+	var slide_distance = 0
+	var slide_time = 0.5
+	
+	if $CollisionShape2D:
+		$CollisionShape2D.scale.y = 0.5
+		
+	var t = create_tween()
+	t.tween_property(self, "position:x", position.x + slide_distance, slide_time).set_trans(Tween.TRANS_SINE)
+	t.tween_callback(self._reset_collision_shape)  # Call function after slide
+	t.tween_callback(set_on_ground_true)
+
+func _reset_collision_shape():
+	if $CollisionShape2D:
+		$CollisionShape2D.scale.y = 1.0
+		
 func set_on_ground_true():
 	on_ground = 1
 

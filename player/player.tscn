@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://q6yaogco5htg"]
+[gd_scene load_steps=58 format=3 uid="uid://q6yaogco5htg"]
 
 [ext_resource type="Script" uid="uid://br8ftdx80ge83" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bqfkwrx554e2c" path="res://images/player/Lolli_nooutline_SpriteSheet.png" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://diy5wl2v7sn6u" path="res://images/player/Lolli_SpriteSheet.png" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://craicdkgds6tl" path="res://images/player/lollipop_idle.png" id="3_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://tbpxr27f72ug" path="res://images/player/lollipop_poison.png" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://rakxuq0h3gcs" path="res://images/player/lollipop_slide.png" id="6_g6k8r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
 
@@ -156,6 +157,38 @@ region = Rect2(704, 0, 64, 64)
 atlas = ExtResource("4_yw30f")
 region = Rect2(768, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2xo5"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_art4l"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjxoa"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gswnw"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcnuv"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j55il"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjies"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmwog"]
+atlas = ExtResource("6_g6k8r")
+region = Rect2(512, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
 animations = [{
 "frames": [{
@@ -288,6 +321,35 @@ animations = [{
 "loop": true,
 "name": &"poisoned",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2xo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_art4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjxoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gswnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcnuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j55il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjies")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmwog")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6k8r"]
@@ -342,7 +404,7 @@ texture_filter = 1
 position = Vector2(87.5, 86.5)
 scale = Vector2(2.73438, 2.73438)
 sprite_frames = SubResource("SpriteFrames_sh265")
-animation = &"bagged"
+animation = &"slide"
 
 [node name="ToxicBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
