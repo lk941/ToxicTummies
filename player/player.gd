@@ -23,16 +23,24 @@ func _physics_process(delta: float):
 	if Main.game_started:
 		%ToxicBar.visible = true
 		%HungerBar.visible = true
-		toxic_level += 0.01
-		hunger_level -= 0.01
+		toxic_level += 1
+		hunger_level -= 1
 		%HungerBar.value = hunger_level
 		%ToxicBar.value = toxic_level
+		
+		if %ToxicBar.value >= 100 or %HungerBar.value <= 0:
+			%GameOverScreen.visible = true
+			get_parent().game_over()
+			
+			
+			
 	
 	# keeps player on ground
 	if velocity.y > 0:	
 		velocity.y = 0
 	
 	# Jump when pressed spacebar
+	
 	if Input.is_action_just_pressed("jump"):
 		if on_ground == 1:
 			on_ground = 0
@@ -59,8 +67,7 @@ func set_on_ground_true():
 func get_poisoned():
 	%ToxicBar.value += 20
 	anim.play("poisoned")    
-	print(toxic_level)
-	
+	#print(toxic_level)
 func get_bagged():
 	anim.play("bagged") 
 	print("bagged!!")   
