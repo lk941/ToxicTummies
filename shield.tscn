@@ -4,13 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://fcaq7b0gmyl5" path="res://images/shield_pink.png" id="2_ffst0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dmnlx"]
-radius = 13.0
+radius = 16.124516
 
 [node name="Shield" type="Node2D"]
 
 [node name="ShieldEffect" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_vuocu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldEffect"]
@@ -19,4 +17,4 @@ shape = SubResource("CircleShape2D_dmnlx")
 [node name="Sprite2D" type="Sprite2D" parent="ShieldEffect"]
 texture = ExtResource("2_ffst0")
 
-[connection signal="body_entered" from="ShieldEffect" to="ShieldEffect" method="_on_body_entered_shield"]
+[connection signal="body_entered" from="ShieldEffect" to="ShieldEffect" method="_on_body_entered"]
