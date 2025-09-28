@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=19 format=3 uid="uid://b6u4obw673cdi"]
 
 [ext_resource type="Script" uid="uid://dsk2g31dyht88" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b2453dq6i1l46" path="res://end_screen.gd" id="7_5vw27"]
 [ext_resource type="FontFile" uid="uid://cvs7g1pb3ns3c" path="res://fonts/mago2.ttf" id="7_272bh"]
 [ext_resource type="FontFile" uid="uid://dmx3q3mu7bgf0" path="res://fonts/mago3.ttf" id="8_5vw27"]
+[ext_resource type="FontFile" uid="uid://do5hhffa3r4fr" path="res://fonts/mago1.ttf" id="8_kek77"]
 
 [sub_resource type="Theme" id="Theme_7mycd"]
 default_font = ExtResource("7_272bh")
@@ -45,6 +46,15 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
+font = ExtResource("8_kek77")
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_efxa6"]
+font = ExtResource("7_272bh")
+font_size = 121
+font_color = Color(0.352941, 0.772549, 0.309804, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -143,6 +153,7 @@ offset_bottom = 40.0
 script = ExtResource("7_5vw27")
 
 [node name="GameOverScreen" type="CanvasLayer" parent="EndScreen"]
+unique_name_in_owner = true
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="EndScreen/GameOverScreen"]
@@ -150,7 +161,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0.533333)
 
-[node name="Label" type="Label" parent="EndScreen/GameOverScreen/ColorRect"]
+[node name="GameOverLabel" type="Label" parent="EndScreen/GameOverScreen/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,14 +169,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = -83.0
+offset_top = -172.0
 offset_right = 190.0
-offset_bottom = -3.0
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
+
+[node name="FinalScoreLabel" type="Label" parent="EndScreen/GameOverScreen/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 451.0
+offset_top = 249.0
+offset_right = 588.0
+offset_bottom = 325.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_4c57u")
+
+[node name="FinalScoreCount" type="Label" parent="EndScreen/GameOverScreen/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 590.0
+offset_top = 209.0
+offset_right = 681.0
+offset_bottom = 353.0
+label_settings = SubResource("LabelSettings_efxa6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameState/StartButton" to="." method="_on_start_button_pressed"]
