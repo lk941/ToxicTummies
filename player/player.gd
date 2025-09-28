@@ -14,14 +14,21 @@ func _ready():
 	anim.play("idle")                       
 	
 func _physics_process(delta: float):
-	toxic_level += 0.1
-	hunger_level -= 0.1
-	%HungerBar.value = hunger_level
-	%ToxicBar.value = toxic_level
-	if velocity.y > 0:
+	
+	# health bar progresses after game start
+	if Main.game_started:
+		%ToxicBar.visible = true
+		%HungerBar.visible = true
+		toxic_level += 0.01
+		hunger_level -= 0.01
+		%HungerBar.value = hunger_level
+		%ToxicBar.value = toxic_level
+	
+	# keeps player on ground
+	if velocity.y > 0:	
 		velocity.y = 0
 	
-	
+	# Jump when pressed spacebar
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_strength
 		jump()
@@ -35,7 +42,7 @@ func jump():
 	var up_by = 120
 	var up_time = 0.5
 	var down_time = 0.5
-	var t = create_tween()
+	var t = create_tween()	# for smooth jump 
 	t.tween_property(self, "position:y", position.y - up_by, up_time).set_trans(Tween.TRANS_SINE)
 	t.tween_property(self, "position:y", position.y, down_time).set_trans(Tween.TRANS_SINE)
 
@@ -45,14 +52,14 @@ func get_poisoned():
 	print(toxic_level)
 	
 func get_bagged():
-	anim.play("bagged")    
+	anim.play("bagged") 
+	print("bagged!!")   
 	
 func get_energized():
 	%HungerBar.value += 10
-	print("energized + 10")
-	anim.play("bagged")    
+	anim.play("idle")   # changed from bagged to idle 
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "jump":
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("idle")	# returns to "idle" animation after jumping

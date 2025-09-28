@@ -342,10 +342,11 @@ texture_filter = 1
 position = Vector2(87.5, 86.5)
 scale = Vector2(2.73438, 2.73438)
 sprite_frames = SubResource("SpriteFrames_sh265")
-animation = &"jump"
+animation = &"bagged"
 
 [node name="ToxicBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_top = -26.0
 offset_right = 200.0
 offset_bottom = 1.0
@@ -355,6 +356,7 @@ value = 10.0
 
 [node name="HungerBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_top = 3.0
 offset_right = 200.0
 offset_bottom = 30.0

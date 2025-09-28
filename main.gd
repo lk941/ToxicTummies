@@ -15,10 +15,17 @@ func _ready():
 
 
 func game_start():
-	score_label.text = str(score)
+	score_label.text = str(score)	# display initial score
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
+	timer.start()	# remove(?)
+	
+	# Make obstacles, healthbar and score visble
+	%ScoreCount.visible = true
+	%ScoreLabel.visible = true
+	%CurvedJellies.visible = true
+	
+	
 
 # Game Over
 #func temp_game_over_func():
@@ -28,8 +35,8 @@ func game_start():
 
 
 func _on_timer_timeout():
-	score += 1
-	score_label.text = str(score)
+	score += 1	# increment score
+	score_label.text = str(score)	# update UI
 
 
 func _on_start_button_pressed() -> void:

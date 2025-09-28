@@ -10,7 +10,13 @@ func _process(delta):
 			#queue_free()
 
 
-func _on_body_entered_shield(body: Node2D) -> void:
+#func _on_body_entered_shield(body: Node2D) -> void:
+	#queue_free() 
+	#if body.has_method("get_bagged"):
+		#body.get_bagged()
+
+
+func _on_body_entered(body):
 	queue_free() 
 	if body.has_method("get_bagged"):
 		body.get_bagged()
