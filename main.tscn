@@ -27,8 +27,9 @@ default_font_size = 120
 default_font = ExtResource("7_272bh")
 default_font_size = 80
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.964706, 0.505882, 0.529412, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.960784, 0.333333, 0.364706, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -38,9 +39,8 @@ corner_radius_bottom_left = 5
 bg_color = Color(0.964706, 0.505882, 0.529412, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(0.960784, 0.333333, 0.364706, 1)
-border_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.964706, 0.505882, 0.529412, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -124,9 +124,9 @@ offset_top = 302.0
 offset_right = 664.0
 offset_bottom = 374.0
 theme = SubResource("Theme_5vw27")
-theme_override_styles/hover = SubResource("StyleBoxFlat_272bh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kek77")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5vw27")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kek77")
+theme_override_styles/hover = SubResource("StyleBoxFlat_272bh")
 
 [node name="PlayLabel" type="Label" parent="GameState/StartButton"]
 layout_mode = 0
@@ -166,6 +166,11 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameState/StartButton" to="." method="_on_start_button_pressed"]

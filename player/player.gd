@@ -7,11 +7,15 @@ var velocity: Vector2 = Vector2.ZERO
 var toxic_level = 30
 var hunger_level = 80
 var jump_strength = -300.0
+var on_ground = 1
 
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
-	anim.play("idle")                       
+	anim.play("idle")
+	#var viewport_size = get_viewport_rect().size
+	#position = viewport_size * Vector2(0.5, 0.5)   
+	
 	
 func _physics_process(delta: float):
 	
@@ -30,8 +34,10 @@ func _physics_process(delta: float):
 	
 	# Jump when pressed spacebar
 	if Input.is_action_just_pressed("jump"):
-		velocity.y = jump_strength
-		jump()
+		if on_ground == 1:
+			on_ground = 0
+			velocity.y = jump_strength
+			jump()
 	
 	#if hunger_level <= 0.0:
 		#hunger_depleted.emit()
@@ -45,6 +51,10 @@ func jump():
 	var t = create_tween()	# for smooth jump 
 	t.tween_property(self, "position:y", position.y - up_by, up_time).set_trans(Tween.TRANS_SINE)
 	t.tween_property(self, "position:y", position.y, down_time).set_trans(Tween.TRANS_SINE)
+	t.tween_callback(set_on_ground_true) # Call a function after the final tween completes
+	
+func set_on_ground_true():
+	on_ground = 1
 
 func get_poisoned():
 	%ToxicBar.value += 20
