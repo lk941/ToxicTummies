@@ -23,8 +23,8 @@ func _physics_process(delta: float):
 	if Main.game_started:
 		%ToxicBar.visible = true
 		%HungerBar.visible = true
-		toxic_level += 1
-		hunger_level -= 1
+		toxic_level += 0.01
+		hunger_level -= 0.01
 		%HungerBar.value = hunger_level
 		%ToxicBar.value = toxic_level
 		
