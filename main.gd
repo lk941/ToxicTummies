@@ -7,6 +7,8 @@ extends Control
 @onready var play_button = $GameState/StartButton
 @onready var start_label = $GameState/GameStartLabel
 
+@onready var generator = $ObstacleGenerator  # reference your generate node
+
 var score = 0
 var final_score
 var game_started: bool = false
@@ -31,6 +33,11 @@ func game_start():
 	%ScoreLabel.visible = true
 	%CurvedJellies.visible = true
 	
+
+  generator.start_spawning()
+
+
+
 	
 func game_over():
 	print("Game over node:", self, " score=", score)
@@ -48,6 +55,7 @@ func game_over():
 	get_tree().paused = true
 	
 	
+
 # Game Over
 #func temp_game_over_func():
 	#%GameOverScreen.visible = true
