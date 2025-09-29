@@ -1,10 +1,12 @@
 extends Node
-const SPAWN_X_RANGE = Vector2(1185, 1200)   # min and max X
-const SPAWN_Y_RANGE = Vector2(465-120, 465)   # min and max Y
+const SPAWN_X_RANGE = Vector2(1185, 1800)   # min and max X
+const SPAWN_Y_RANGE = Vector2(475-120, 475)   # min and max Y
 
 # How often to spawn
 @export var spawn_interval := 2.0  # seconds
 var timer: Timer  # store a reference
+
+var obs_scale = 2.64
 
 #var obstacle_scene = preload("res://obstacle/obstacle.tscn")
 var to_spawn_array = [
@@ -31,7 +33,10 @@ func start_spawning():
 	timer.start()
 
 func _on_timer_timeout():
-	var spawn_Obj = to_spawn_array.pick_random().instantiate()
+	var scene = to_spawn_array.pick_random()
+	var spawn_Obj = scene.instantiate()
+	if scene.resource_path.get_file() != "obstacle.tscn":
+		spawn_Obj.scale = Vector2(2.64, 2.64)
 	#var obstacle = obstacle_scene.instantiate()
 	# Random X and Y within your ranges
 	var x = randf_range(SPAWN_X_RANGE.x, SPAWN_X_RANGE.y)
