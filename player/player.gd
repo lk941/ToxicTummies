@@ -27,6 +27,7 @@ func _physics_process(delta: float):
 		hunger_level -= 0.01
 		%HungerBar.value = hunger_level
 		%ToxicBar.value = toxic_level
+		print(%ToxicBar.value)
 		
 		if %ToxicBar.value >= 100 or %HungerBar.value <= 0:
 			%GameOverScreen.visible = true
@@ -87,15 +88,20 @@ func set_on_ground_true():
 	on_ground = 1
 
 func get_poisoned():
+	toxic_level += 20
 	%ToxicBar.value += 20
-	anim.play("poisoned")    
-	#print(toxic_level)
+	anim.play("poisoned")
+	print("Toxic bar changes below")    
+	print(%ToxicBar.value)
 func get_bagged():
 	anim.play("bagged") 
 	print("bagged!!")   
 	
 func get_energized():
+	hunger_level += 10
 	%HungerBar.value += 10
+	print(%HungerBar.value)
+	
 	anim.play("idle")   # changed from bagged to idle 
 
 

@@ -11,5 +11,5 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free() 
-	if body.has_method("get_poisoned"):
-		body.get_poisoned()
+	if body.has_method("get_energized"):
+		body.get_energized()
