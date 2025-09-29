@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drjkrwcguub04" path="res://images/jelly/PurpleJelly.png" id="2_jvwtc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnf8h"]
-radius = 13.0
+radius = 9.0
 
 [node name="PurpleJelly" type="Node2D"]
 

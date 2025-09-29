@@ -4,19 +4,16 @@
 [ext_resource type="Script" uid="uid://cuujc5suhragm" path="res://obstacle/obstacle.gd" id="1_ofsxj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
-radius = 22.0227
+radius = 9.0
 
 [node name="Obstacle" type="Area2D"]
 script = ExtResource("1_ofsxj")
 
 [node name="PurpleJelly" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.46875, 0.53125)
-scale = Vector2(2.6543, 2.6543)
 texture = ExtResource("1_7k104")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_4gyqm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

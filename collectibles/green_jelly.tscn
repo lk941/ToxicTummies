@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cyd6fs3ysp6ki" path="res://images/jelly/GreenJelly.png" id="2_s18fy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkjm1"]
-radius = 13.0
 
 [node name="GreenJelly" type="Node2D"]
 

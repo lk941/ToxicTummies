@@ -1,13 +1,17 @@
 extends Node2D
 
-signal hunger_depleted
-
 var velocity: Vector2 = Vector2.ZERO
 
 var toxic_level = 30
 var hunger_level = 80
 var jump_strength = -300.0
 var on_ground = 1
+
+const TOXIC_DMG_VALUE = 10
+const ENERGY_BUFF_VALUE = 2
+const TOXIC_DMG_GRADUAL = 0.01
+const ENERGY_DMG_GRADUAL = 0.01
+
 
 @onready var anim = $AnimatedSprite2D
 
@@ -24,11 +28,10 @@ func _physics_process(delta: float):
 		%ToxicBar.visible = true
 		%HungerBar.visible = true
 		if !Global.shielded:
-			toxic_level += 0.01
-		hunger_level -= 0.01
+			toxic_level += TOXIC_DMG_GRADUAL
+		hunger_level -= ENERGY_DMG_GRADUAL
 		%HungerBar.value = hunger_level
 		%ToxicBar.value = toxic_level
-		print(%ToxicBar.value)
 		
 		if %ToxicBar.value >= 100 or %HungerBar.value <= 0:
 			%GameOverScreen.visible = true
@@ -36,7 +39,6 @@ func _physics_process(delta: float):
 			
 			
 			
-	
 	# keeps player on ground
 	if velocity.y > 0:	
 		velocity.y = 0
@@ -59,7 +61,8 @@ func _physics_process(delta: float):
 					  
 					
 func jump():
-	anim.play("jump")  
+	if !Global.shielded:
+		anim.play("jump")  
 	var up_by = 120
 	var up_time = 0.5
 	var down_time = 0.5
@@ -71,42 +74,57 @@ func jump():
 func slide():
 	anim.play("slide")
 	var slide_distance = 0
-	var slide_time = 0.5 
-	
+	var slide_time = 0.8
+	var collision_y;
+	var collision_scale;
+	var collision_delay = 0.5  # adjust this value based on animation timing
+	await get_tree().create_timer(collision_delay).timeout
 	if $CollisionShape2D:
+		collision_y = $CollisionShape2D.position.y 
+		collision_scale = $CollisionShape2D.scale.y 
 		$CollisionShape2D.scale.y = 0.5
-		
+		$CollisionShape2D.position.y += 35
+	
 	var t = create_tween()
 	t.tween_property(self, "position:x", position.x + slide_distance, slide_time).set_trans(Tween.TRANS_SINE)
-	t.tween_callback(self._reset_collision_shape)  # Call function after slide
-	t.tween_callback(set_on_ground_true)
+	await t.finished   # wait until tween completes
 
-func _reset_collision_shape():
+	
+
+	_reset_collision_shape(collision_y, collision_scale)
+	set_on_ground_true()
+
+func _reset_collision_shape(collision_y, collision_scale):
 	if $CollisionShape2D:
-		$CollisionShape2D.scale.y = 1.0
+		$CollisionShape2D.scale.y = collision_scale
+		$CollisionShape2D.position.y = collision_y
+
 		
 func set_on_ground_true():
 	on_ground = 1
 
 func get_poisoned():
-	toxic_level += 20
-	%ToxicBar.value += 20
-	anim.play("poisoned")
-	print("Toxic bar changes below")    
-	print(%ToxicBar.value)
+	if !Global.shielded:
+		toxic_level += TOXIC_DMG_VALUE
+		%ToxicBar.value += TOXIC_DMG_VALUE
+		anim.play("poisoned")
+		
+		
 func get_bagged():
 	anim.play("bagged") 
-	print("bagged!!")   
 	
 func get_energized():
-	hunger_level += 10
-	%HungerBar.value += 10
-	print(%HungerBar.value)
-	
-	anim.play("idle")   # changed from bagged to idle 
+	var value = min(hunger_level + ENERGY_BUFF_VALUE, 100)
+	hunger_level = value
+	%HungerBar.value = value
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if $AnimatedSprite2D.animation == "jump":
-		$AnimatedSprite2D.play("idle")	# returns to "idle" animation after jumping
-			
+	
+	
+	if anim.animation == "jump" || anim.animation == "slide":
+		if Global.shielded:
+			anim.play("bagged")	# returns to "idle" animation after jumping
+		else:	
+			anim.play("idle")	# returns to "idle" animation after jumping
+		

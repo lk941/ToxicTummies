@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cl6bda41sicn5" path="res://images/jelly/RedJelly.png" id="2_aing5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boqel"]
-radius = 13.0
 
 [node name="RedJelly" type="Node2D"]
 
