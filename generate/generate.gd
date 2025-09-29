@@ -4,6 +4,8 @@ const SPAWN_Y_RANGE = Vector2(475-120, 475)   # min and max Y
 
 # How often to spawn
 @export var spawn_interval := 2.0  # seconds
+@export var arranged_interval := 10.0
+@export var arranged_y_position := 465
 var timer: Timer  # store a reference
 
 var obs_scale = 2.64
@@ -31,6 +33,13 @@ func start_spawning():
 	
 	# Start the timer
 	timer.start()
+	
+	timer_arranged = Timer.new()
+	timer_arranged.wait_time = arranged_interval
+	timer_arranged.one_shot = false
+	add_child(timer_arranged)
+	timer_arranged.timeout.connect(_spawn_arranged, CONNECT_DEFERRED)
+	timer_arranged.start()
 
 func _on_timer_timeout():
 	var scene = to_spawn_array.pick_random()

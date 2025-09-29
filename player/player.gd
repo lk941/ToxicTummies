@@ -70,7 +70,7 @@ func jump():
 func slide():
 	anim.play("slide")
 	var slide_distance = 0
-	var slide_time = 0.5
+	var slide_time = 0.5 
 	
 	if $CollisionShape2D:
 		$CollisionShape2D.scale.y = 0.5
@@ -108,3 +108,4 @@ func get_energized():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "jump":
 		$AnimatedSprite2D.play("idle")	# returns to "idle" animation after jumping
+			
