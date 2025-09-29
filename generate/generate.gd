@@ -34,12 +34,12 @@ func start_spawning():
 	# Start the timer
 	timer.start()
 	
-	timer_arranged = Timer.new()
-	timer_arranged.wait_time = arranged_interval
-	timer_arranged.one_shot = false
-	add_child(timer_arranged)
-	timer_arranged.timeout.connect(_spawn_arranged, CONNECT_DEFERRED)
-	timer_arranged.start()
+	#timer_arranged = Timer.new()
+	#timer_arranged.wait_time = arranged_interval
+	#timer_arranged.one_shot = false
+	#add_child(timer_arranged)
+	#timer_arranged.timeout.connect(_spawn_arranged, CONNECT_DEFERRED)
+	#timer_arranged.start()
 
 func _on_timer_timeout():
 	var scene = to_spawn_array.pick_random()
