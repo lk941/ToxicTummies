@@ -67,7 +67,7 @@ func game_over():
 func _on_timer_timeout():
 	score += 1	# increment score
 	score_label.text = str(score)	# update UI
-	print("Timer node:", self, " score=", score)
+	#print("Timer node:", self, " score=", score)
 
 
 func _on_start_button_pressed() -> void:

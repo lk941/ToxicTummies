@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciswfexi12n38"]
+[gd_scene load_steps=8 format=3 uid="uid://ciswfexi12n38"]
 
 [ext_resource type="Texture2D" uid="uid://cl6bda41sicn5" path="res://images/jelly/RedJelly.png" id="1_jgxxv"]
 [ext_resource type="Script" uid="uid://bienf66gx4aii" path="res://collectibles/jelly_1.gd" id="1_kpb2h"]
 [ext_resource type="PackedScene" uid="uid://rbw7pt2jrxbt" path="res://collectibles/red_jelly.tscn" id="5_sxpfe"]
-[ext_resource type="PackedScene" uid="uid://cur4fc0cy2cqg" path="res://shield.tscn" id="6_gjk04"]
 [ext_resource type="PackedScene" uid="uid://c5qxvtssa0msp" path="res://collectibles/green_jelly.tscn" id="7_7ai2w"]
 [ext_resource type="PackedScene" uid="uid://dr2bq0vaol8bg" path="res://collectibles/purple_jelly.tscn" id="8_54vyi"]
 
@@ -24,6 +23,8 @@ func _process(delta):
 radius = 13.0
 
 [node name="CurvedArrangement" type="Node2D"]
+position = Vector2(1157, 4)
+scale = Vector2(2.654, 2.654)
 script = SubResource("GDScript_x54t1")
 
 [node name="Jelly1" type="Area2D" parent="."]
@@ -36,7 +37,7 @@ shape = SubResource("CircleShape2D_kpb2h")
 texture = ExtResource("1_jgxxv")
 
 [node name="GreenJelly" parent="." instance=ExtResource("7_7ai2w")]
-position = Vector2(227, 0)
+position = Vector2(278.8244, -2.2607384)
 
 [node name="PurpleJelly" parent="." instance=ExtResource("8_54vyi")]
 position = Vector2(69, -1)
@@ -77,12 +78,7 @@ position = Vector2(316, -3)
 
 [node name="PurpleJelly2" parent="." instance=ExtResource("8_54vyi")]
 position = Vector2(385, 0)
-
 [node name="Shield" parent="." instance=ExtResource("6_gjk04")]
 position = Vector2(182, -10)
 
-[node name="Shield2" parent="." instance=ExtResource("6_gjk04")]
-position = Vector2(546, -11)
-
 [connection signal="body_entered" from="Jelly1" to="Jelly1" method="_on_body_entered"]
-[connection signal="body_entered" from="RedJelly4/Jelly2" to="RedJelly4/Jelly2" method="_on_body_entered"]
