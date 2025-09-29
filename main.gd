@@ -1,7 +1,7 @@
 extends Control
 
 @onready var score_label = $ScoreCount
-@onready var finalscore_label = $FinalScoreCount
+@onready var finalscore_label = %FinalScoreCount
 @onready var timer = $Timer
 
 @onready var play_button = $GameState/StartButton
@@ -48,7 +48,8 @@ func game_over():
 	final_score = score
 	print("final_score below")
 	print(final_score)
-	#finalscore_label.text = str(final_score)
+	
+	finalscore_label.text = str(final_score)
 	#%FinalScoreCount.visible = true
 	#%FinalScoreLabel.visible = true
 	
