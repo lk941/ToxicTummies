@@ -37,7 +37,7 @@ shape = SubResource("CircleShape2D_kpb2h")
 texture = ExtResource("1_jgxxv")
 
 [node name="GreenJelly" parent="." instance=ExtResource("7_7ai2w")]
-position = Vector2(278.8244, -2.2607384)
+position = Vector2(278.824, -2.26074)
 
 [node name="PurpleJelly" parent="." instance=ExtResource("8_54vyi")]
 position = Vector2(69, -1)
@@ -78,7 +78,5 @@ position = Vector2(316, -3)
 
 [node name="PurpleJelly2" parent="." instance=ExtResource("8_54vyi")]
 position = Vector2(385, 0)
-[node name="Shield" parent="." instance=ExtResource("6_gjk04")]
-position = Vector2(182, -10)
 
 [connection signal="body_entered" from="Jelly1" to="Jelly1" method="_on_body_entered"]
