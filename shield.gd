@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	Global.shielded = true
 	queue_free() 
 	print("Bagged")
 	if body.has_method("get_bagged"):
