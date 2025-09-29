@@ -1,16 +1,24 @@
 extends Node
-const SPAWN_X_RANGE = Vector2(1185, 1200)   # min and max X
-const SPAWN_Y_RANGE = Vector2(465-120, 465)   # min and max Y
-
+const SPAWN_X_RANGE = Vector2(1185, 1800)   # min and max X
+const SPAWN_Y_RANGE = Vector2(475-120, 475)   # min and max Y
 
 # How often to spawn
 @export var spawn_interval := 2.0  # seconds
 @export var arranged_interval := 10.0
 @export var arranged_y_position := 465
 var timer: Timer  # store a reference
-var timer_arranged: Timer
-var obstacle_scene = preload("res://obstacle/obstacle.tscn")
-var arranged_scene = preload("res://collectibles/curved_arrangement.tscn")
+
+var obs_scale = 2.64
+
+#var obstacle_scene = preload("res://obstacle/obstacle.tscn")
+var to_spawn_array = [
+	preload("res://obstacle/obstacle.tscn"),
+	preload("res://collectibles/curved_arrangement.tscn"),
+	preload("res://shield.tscn"),
+	preload("res://collectibles/red_jelly.tscn"),
+	preload("res://collectibles/green_jelly.tscn")
+	]
+
 
 func start_spawning():
 	# Create a Timer node
@@ -34,14 +42,13 @@ func start_spawning():
 	timer_arranged.start()
 
 func _on_timer_timeout():
-	var obstacle = obstacle_scene.instantiate()
+	var scene = to_spawn_array.pick_random()
+	var spawn_Obj = scene.instantiate()
+	if scene.resource_path.get_file() != "obstacle.tscn":
+		spawn_Obj.scale = Vector2(2.64, 2.64)
+	#var obstacle = obstacle_scene.instantiate()
 	# Random X and Y within your ranges
 	var x = randf_range(SPAWN_X_RANGE.x, SPAWN_X_RANGE.y)
 	var y = randf_range(SPAWN_Y_RANGE.x, SPAWN_Y_RANGE.y)
-	obstacle.position = Vector2(x, y)
-	add_child(obstacle)
-	
-func _spawn_arranged():
-	var arranged = arranged_scene.instantiate()
-	arranged.position.y = 430
-	add_child(arranged)
+	spawn_Obj.position = Vector2(x, y)
+	add_child(spawn_Obj)

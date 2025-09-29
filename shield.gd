@@ -1,6 +1,6 @@
 extends Area2D
 
-var SPEED = 60
+var SPEED = 300
 
 func _process(delta):
 	if Main.game_started:

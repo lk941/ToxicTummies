@@ -1,6 +1,6 @@
 extends Area2D
 
-var SPEED = 50
+var SPEED = 300
 
 func _process(delta):
 	position.x -= SPEED * delta

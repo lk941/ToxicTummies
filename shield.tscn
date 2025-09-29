@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fcaq7b0gmyl5" path="res://images/shield_pink.png" id="2_ffst0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dmnlx"]
-radius = 16.124516
+radius = 16.1245
 
 [node name="Shield" type="Node2D"]
 
