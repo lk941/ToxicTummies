@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6u4obw673cdi"]
+[gd_scene load_steps=19 format=3 uid="uid://b6u4obw673cdi"]
 
 [ext_resource type="Script" uid="uid://dsk2g31dyht88" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://q6yaogco5htg" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://baiqc380t2018" path="res://environment.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://ciswfexi12n38" path="res://collectibles/curved_arrangement.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://b2453dq6i1l46" path="res://end_screen.gd" id="7_5vw27"]
 [ext_resource type="FontFile" uid="uid://cvs7g1pb3ns3c" path="res://fonts/mago2.ttf" id="7_272bh"]
 [ext_resource type="FontFile" uid="uid://dmx3q3mu7bgf0" path="res://fonts/mago3.ttf" id="8_5vw27"]
@@ -72,11 +71,6 @@ position = Vector2(150, 310)
 
 [node name="Background" parent="." instance=ExtResource("2_h2yge")]
 layout_mode = 1
-
-[node name="CurvedJellies" parent="." instance=ExtResource("4_lquwl")]
-unique_name_in_owner = true
-position = Vector2(500, 430)
-scale = Vector2(2.3, 2.3)
 
 [node name="ScoreCount" type="RichTextLabel" parent="."]
 unique_name_in_owner = true

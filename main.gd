@@ -31,7 +31,7 @@ func game_start():
 	# Make obstacles, healthbar and score visble
 	%ScoreCount.visible = true
 	%ScoreLabel.visible = true
-	%CurvedJellies.visible = true
+	#%CurvedJellies.visible = true
 	
 
 	generator.start_spawning()
