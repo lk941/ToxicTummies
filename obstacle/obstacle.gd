@@ -1,11 +1,12 @@
 extends Area2D
 
-var SPEED = 300
+const SCALE = 2.654 #@TODO not use this if improving code
+const SPEED = 300 * SCALE
 
 func _process(delta):
-	position.x -= SPEED * delta
+	global_position.x -= SPEED * delta
 
-	if position.x < -50:  # off-screen
+	if global_position.x < -50:  # off-screen
 		queue_free()
 
 
