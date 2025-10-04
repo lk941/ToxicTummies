@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5qxvtssa0msp"]
+
+[ext_resource type="Script" uid="uid://cl4678lpqh7dn" path="res://Scripts/collectibles/green_jelly.gd" id="1_ioqly"]
+[ext_resource type="Texture2D" uid="uid://cyd6fs3ysp6ki" path="res://Art/jelly/GreenJelly.png" id="2_070dn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jkjm1"]
+
+[node name="GreenJelly" type="Node2D"]
+
+[node name="Jelly1" type="Area2D" parent="."]
+collision_layer = 5
+script = ExtResource("1_ioqly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly1"]
+shape = SubResource("CircleShape2D_jkjm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jelly1"]
+texture = ExtResource("2_070dn")
+
+[connection signal="body_entered" from="Jelly1" to="Jelly1" method="_on_body_entered"]

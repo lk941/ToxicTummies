@@ -13,13 +13,12 @@ config_version=5
 config/name="ToxicTummies"
 run/main_scene="uid://b6u4obw673cdi"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="res://icon.svg"
 
 [autoload]
 
 Main="*res://main.gd"
-Global="*res://player/global.gd"
-GlobalConstants="*res://global_constants/Global_Constants.gd"
+Global="*res://Scripts/player/global.gd"
+GlobalConstants="*res://Scripts/Global_Constants.gd"
 
 [display]
 

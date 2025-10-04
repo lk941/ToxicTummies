@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr2bq0vaol8bg"]
+
+[ext_resource type="Script" uid="uid://bhkd77hhi4vjx" path="res://Scripts/collectibles/purple_jelly.gd" id="1_3ksbu"]
+[ext_resource type="Texture2D" uid="uid://drjkrwcguub04" path="res://Art/jelly/PurpleJelly.png" id="2_5vdvb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnf8h"]
+radius = 9.0
+
+[node name="PurpleJelly" type="Node2D"]
+
+[node name="PoisonJelly" type="Area2D" parent="."]
+collision_layer = 9
+script = ExtResource("1_3ksbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonJelly"]
+shape = SubResource("CircleShape2D_gnf8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="PoisonJelly"]
+texture = ExtResource("2_5vdvb")
+
+[connection signal="body_entered" from="PoisonJelly" to="PoisonJelly" method="_on_body_entered"]
