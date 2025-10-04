@@ -21,7 +21,7 @@ func _on_body_entered(body):
 	hide()
 	# Wait for SHIELD_DURATION seconds
 	await get_tree().create_timer(SHIELD_DURATION).timeout
-
+	
 	Global.shielded = false
 	print("Shield ran out")
 

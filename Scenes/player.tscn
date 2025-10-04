@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://q6yaogco5htg"]
+[gd_scene load_steps=58 format=3 uid="uid://q6yaogco5htg"]
 
 [ext_resource type="Script" uid="uid://br8ftdx80ge83" path="res://Scripts/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bqfkwrx554e2c" path="res://Art/player/Lolli_nooutline_SpriteSheet.png" id="2_g1dw6"]
@@ -6,11 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://craicdkgds6tl" path="res://Art/player/lollipop_idle.png" id="3_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://tbpxr27f72ug" path="res://Art/player/lollipop_poison.png" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://rakxuq0h3gcs" path="res://Art/player/lollipop_slide.png" id="6_g6k8r"]
-[ext_resource type="AudioStream" uid="uid://dxa3qeon13wlt" path="res://Music/sfx_eatgoodjelly.wav" id="7_3smsa"]
-[ext_resource type="AudioStream" uid="uid://cqq0kft4lpvyf" path="res://Music/oof-97698.mp3" id="8_8erm5"]
-[ext_resource type="AudioStream" uid="uid://cmp0n07uq8kru" path="res://Music/grunt2-85989.mp3" id="9_f1ek2"]
-[ext_resource type="AudioStream" uid="uid://cguhp51t85gwp" path="res://Music/Burp_1.wav" id="10_gymyn"]
-[ext_resource type="AudioStream" uid="uid://h5xhiv74js2w" path="res://Music/Burp_8.wav" id="11_pu2lt"]
+[ext_resource type="AudioStream" uid="uid://vcgsnnjjav4t" path="res://Music/Bubble.wav" id="10_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://bh7ns5kcs8ets" path="res://Music/bagged.mp3" id="12_pu2lt"]
+[ext_resource type="AudioStream" uid="uid://cg3w8m818ccli" path="res://Music/hurt.mp3" id="14_7dp3o"]
+[ext_resource type="AudioStream" uid="uid://bfcjpj7wh2a1y" path="res://Music/Carrotnom.mp3" id="18_igrcy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
 
@@ -377,8 +376,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_f1ek2"]
-
 [node name="Player2D" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
@@ -416,24 +413,20 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_rgyib")
 value = 80.0
 show_percentage = false
 
-[node name="SfxEatgoodjelly" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_3smsa")
+[node name="Bagged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pu2lt")
 volume_db = -10.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamWAV_f1ek2")
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_7dp3o")
+volume_db = -5.0
 
-[node name="Oof97698" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_8erm5")
+[node name="Carrotnom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_igrcy")
+volume_db = -12.0
 
-[node name="Grunt285989" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_f1ek2")
-
-[node name="Burp1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_gymyn")
-
-[node name="Burp8" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_pu2lt")
+[node name="Bubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_tx1dd")
 volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

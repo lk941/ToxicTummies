@@ -108,18 +108,17 @@ func get_poisoned():
 		toxic_level += TOXIC_DMG_VALUE
 		%ToxicBar.value += TOXIC_DMG_VALUE
 		anim.play("poisoned")
-		$Burp8.play()
+		$Hurt.play()
+		
 func get_bagged():
 	anim.play("bagged") 
-	
+	#$Bagged.play()
+	$Bubble.play()
 func get_energized():
 	var value = min(hunger_level + ENERGY_BUFF_VALUE, 100)
 	hunger_level = value
 	%HungerBar.value = value
-	$SfxEatgoodjelly.play()
-	
-
-
+	$Carrotnom.play()
 func _on_animated_sprite_2d_animation_finished() -> void:
 	
 	
