@@ -40,7 +40,7 @@ func game_start():
 
 	
 func game_over():
-	print("Game over node:", self, " score=", score)
+	
 	game_end = true
 	Main.game_started = false
 	#print(score)

@@ -1,3 +1,3 @@
 extends Node
 
-const SPEED = 200
+const SPEED = 1000

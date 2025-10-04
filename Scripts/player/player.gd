@@ -36,6 +36,7 @@ func _physics_process(delta: float):
 		if %ToxicBar.value >= 100 or %HungerBar.value <= 0:
 			%GameOverScreen.visible = true
 			get_parent().game_over()
+			$GameOver.play()
 			
 			
 			
@@ -44,7 +45,6 @@ func _physics_process(delta: float):
 		velocity.y = 0
 	
 	# Jump when pressed spacebar
-	
 	if Input.is_action_just_pressed("jump"):
 		if on_ground == 1:
 			on_ground = 0
@@ -56,10 +56,6 @@ func _physics_process(delta: float):
 			on_ground = 0
 			slide()
 	
-	#if hunger_level <= 0.0:
-		#hunger_depleted.emit()
-					  
-					
 func jump():
 	if !Global.shielded:
 		anim.play("jump")  
@@ -114,6 +110,7 @@ func get_bagged():
 	anim.play("bagged") 
 	#$Bagged.play()
 	$Bubble.play()
+	
 func get_energized():
 	var value = min(hunger_level + ENERGY_BUFF_VALUE, 100)
 	hunger_level = value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://q6yaogco5htg"]
+[gd_scene load_steps=59 format=3 uid="uid://q6yaogco5htg"]
 
 [ext_resource type="Script" uid="uid://br8ftdx80ge83" path="res://Scripts/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bqfkwrx554e2c" path="res://Art/player/Lolli_nooutline_SpriteSheet.png" id="2_g1dw6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://tbpxr27f72ug" path="res://Art/player/lollipop_poison.png" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://rakxuq0h3gcs" path="res://Art/player/lollipop_slide.png" id="6_g6k8r"]
 [ext_resource type="AudioStream" uid="uid://vcgsnnjjav4t" path="res://Music/Bubble.wav" id="10_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://c576nco1b0odb" path="res://Music/GameOver.mp3" id="11_gymyn"]
 [ext_resource type="AudioStream" uid="uid://bh7ns5kcs8ets" path="res://Music/bagged.mp3" id="12_pu2lt"]
 [ext_resource type="AudioStream" uid="uid://cg3w8m818ccli" path="res://Music/hurt.mp3" id="14_7dp3o"]
 [ext_resource type="AudioStream" uid="uid://bfcjpj7wh2a1y" path="res://Music/Carrotnom.mp3" id="18_igrcy"]
@@ -428,5 +429,9 @@ volume_db = -12.0
 [node name="Bubble" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_tx1dd")
 volume_db = -10.0
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gymyn")
+volume_db = 5.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
