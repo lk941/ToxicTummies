@@ -12,10 +12,10 @@ const OBS_SCALE = 2.654
 
 var to_spawn_array = [
 	preload("res://obstacle/obstacle.tscn"),
-	#preload("res://collectibles/curved_arrangement.tscn"),
-	#preload("res://shield.tscn"),
-	#preload("res://collectibles/red_jelly.tscn"),
-	#preload("res://collectibles/green_jelly.tscn")
+	preload("res://collectibles/curved_arrangement.tscn"),
+	preload("res://shield.tscn"),
+	preload("res://collectibles/red_jelly.tscn"),
+	preload("res://collectibles/green_jelly.tscn")
 	]
 
 

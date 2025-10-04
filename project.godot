@@ -21,6 +21,11 @@ Main="*res://main.gd"
 Global="*res://player/global.gd"
 GlobalConstants="*res://global_constants/Global_Constants.gd"
 
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [input]
 
 ui_accept={

@@ -194,5 +194,8 @@ label_settings = SubResource("LabelSettings_efxa6")
 [node name="ObstacleGenerator" type="Node2D" parent="."]
 script = ExtResource("9_kek77")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameState/StartButton" to="." method="_on_start_button_pressed"]

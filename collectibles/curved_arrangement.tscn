@@ -8,14 +8,14 @@
 [sub_resource type="GDScript" id="GDScript_x54t1"]
 script/source = "extends Node2D
 
-var SPEED = 300
+
 var SCREEN_WIDTH = 1024  # adjust to your game's width
 var RESET_X = SCREEN_WIDTH + 50  # some buffer so it's offscreen
 var SCREEN_HEIGHT = 600  # your game 
 
 func _process(delta):
 	if Main.game_started:
-		position.x -= SPEED * delta
+		position.x -= GlobalConstants.SPEED * delta
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpb2h"]
@@ -23,7 +23,6 @@ radius = 9.427271
 
 [node name="CurvedArrangement" type="Node2D"]
 position = Vector2(1157, 4)
-scale = Vector2(2.654, 2.654)
 script = SubResource("GDScript_x54t1")
 
 [node name="Jelly1" type="Area2D" parent="."]
